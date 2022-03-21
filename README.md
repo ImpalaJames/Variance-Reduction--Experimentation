@@ -28,5 +28,6 @@ CUPED is super easy to use and implement. However, the covariate selection can b
 
 ## Variance_Weighted Estimators
 First developed by KevinLiou and Sean Taylor from Facebook and Lyft in 2020. The main idea of the method is to give more weight to users who have lower pre-experiment variance. This method relaxed the homoscedastic variance assumption and instead assumes that each individual can have its own metric variance. 
-
 ![alt text](https://github.com/ImpalaJames/Variance-Reduction--Experimentation/blob/main/Variance%20Weighted%20Estimators%20Formula.png)
+
+Similar to CUPED, the variance-weighted estimators also use pre-experiment data. However, weighting induced biases. To reduce bias, the paper proposed a method to bucket users based on their pre-experiment variances, calculates the mean of the treatment effect and pre-experience variance within each bucket, and then calculates the weighted treatment effect across strata. So overall in practice, we would estimate the variance, bucket the variance into k strata, weigh each stratum by the inverse variance, and calculate the weighted treatment effect.

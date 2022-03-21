@@ -13,3 +13,13 @@ The stratification method provides an unbiased estimate of the treatment effect 
 
 In practice, it is a lot more common to do post-stratification than stratification. Post-stratification randomly samples the population first and then places individuals into strata. Similar to stratification, post-stratification can achieve similar variance reduction.
 Here is a very simple example where we generate data from four different normal distributions (4 strata), randomly assign individuals to the treatment and control group, add a treatment effect to the treatment group, and visualize the treatment effects via bootstrapping. The treatment effect is calculated as the mean difference between treatment and control without stratification and as the average of the mean difference for each stratum with stratification. From our simple example, we do see a variance reduction with stratification. Crucially, the mean is unchanged, so we should be able to see any experimental effect on the means better now that the variance has been decreased.
+
+
+## CUPED
+Controlled-experiment using pre-experiment data was first introduced by Alex Deng, Ya Xu, Ron Kohavi, and Toby Walker from Microsoft in 2013 and has been widely used in big tech companies such as Netflix, bookings.com, TripAdvisor, and many others. CUPED uses pre-experiment data X (e.g., pre-experiment values of Y) as a control covariate.
+
+In other words, the variance of Y is reduced by (1-Corr(X, Y)). We would need the correlation between X and Y to be high for CUPED to work well. In the original paper, it is recommended to use the pre-experiment value of Y as X.
+
+### Pros and Cons
+CUPED is super easy to use and implement. However, the covariate selection can be tricky, especially when the pre-experiment measure of the target variable is not available. The covariate has to be correlated with the target measure, but not related to the experiment. The scenario where there are multiple covariates can be tricky to deal with in practice.
+

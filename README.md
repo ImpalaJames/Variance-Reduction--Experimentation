@@ -23,3 +23,6 @@ In other words, the variance of Y is reduced by (1-Corr(X, Y)). We would need th
 ### Pros and Cons
 CUPED is super easy to use and implement. However, the covariate selection can be tricky, especially when the pre-experiment measure of the target variable is not available. The covariate has to be correlated with the target measure, but not related to the experiment. The scenario where there are multiple covariates can be tricky to deal with in practice.
 
+
+## Variance_Weighted Estimators
+First developed by KevinLiou and Sean Taylor from Facebook and Lyft in 2020. The main idea of the method is to give more weight to users who have lower pre-experiment variance. This method relaxed the homoscedastic variance assumption and instead assumes that each individual can have its own metric variance. 

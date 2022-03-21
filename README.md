@@ -26,3 +26,5 @@ CUPED is super easy to use and implement. However, the covariate selection can b
 
 ## Variance_Weighted Estimators
 First developed by KevinLiou and Sean Taylor from Facebook and Lyft in 2020. The main idea of the method is to give more weight to users who have lower pre-experiment variance. This method relaxed the homoscedastic variance assumption and instead assumes that each individual can have its own metric variance. 
+
+![alt text](https://miro.medium.com/max/546/0*9KenRS_cWlPpfbpj) I 

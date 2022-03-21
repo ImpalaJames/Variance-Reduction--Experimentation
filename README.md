@@ -31,3 +31,8 @@ First developed by KevinLiou and Sean Taylor from Facebook and Lyft in 2020. The
 ![alt text](https://github.com/ImpalaJames/Variance-Reduction--Experimentation/blob/main/Variance%20Weighted%20Estimators%20Formula.png)
 
 Similar to CUPED, the variance-weighted estimators also use pre-experiment data. However, weighting induced biases. To reduce bias, the paper proposed a method to bucket users based on their pre-experiment variances, calculates the mean of the treatment effect and pre-experience variance within each bucket, and then calculates the weighted treatment effect across strata. So overall in practice, we would estimate the variance, bucket the variance into k strata, weigh each stratum by the inverse variance, and calculate the weighted treatment effect.
+
+### Pros and Cons
+The variance-weighted estimator models individual pre-experiment variance as weight and it can be used as a nice extension to other methods such as CUPED. It works well when there is a highly skewed variance between users and when the pre-treatment variance is a good indicator of the post-treatment variance.
+
+However, when the variance of the pre-treatment variance is low or when the pre- and post-experiment variances are not consistent, the variance-weighted estimator might not work. In addition, the variance-weighted estimator is not unbiased. Managing bias is important for this method.
